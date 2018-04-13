@@ -6,11 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "express": "~4.16.0",
+    "dot-env": "0.0.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "nem2-sdk": "^0.9.2",
+    "rxjs": "^5.5.8",
+    "stripe": "^5.6.1"
   }
 }
