@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import { Button, Input  } from 'semantic-ui-react'
-import QrReader from './QrReader'
+import { Input  } from 'semantic-ui-react'
+// import QrReader from './QrReader'
 // require('dotenv').config()
 // require('dot-env')
 const nem2Sdk = require("nem2-sdk");
@@ -21,10 +21,9 @@ const Address = nem2Sdk.Address,
   return TransferTransaction.create(Deadline.create(),
   Address.createFromRawAddress('SBG2AR-6VPSMZ-7JTJOF-OZ5NYY-FJ4UVW-C5EIHV-N5WA'), [new Mosaic(new MosaicId('choice:nzdc'),
   UInt64.fromUint(amount))],
-  PlainMessage.create('my first transfer transaction!'),
   NetworkType.MIJIN_TEST,);
 }
-
+// const privateKey = process.env.PRIVATE_KEY;
 const privateKey = "5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892E6B5"
 
 const account = Account.createFromPrivateKey(privateKey,              NetworkType.MIJIN_TEST);

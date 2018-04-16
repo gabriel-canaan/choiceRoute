@@ -42,7 +42,6 @@ class InfoButton extends Component {
   render() {
     return (
       <div>
-
         <Button
           className='info'
           onClick={ () => this.onSubmit()}
