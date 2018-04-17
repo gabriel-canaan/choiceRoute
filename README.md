@@ -2,6 +2,7 @@
 
 T 1.
   PORT=3001 node bin/www
+  
 T 2.
   yarn start
 
