@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 const nem2Sdk = require("nem2-sdk");
 // require('dot-env'
 // require('dotenv').config()
@@ -16,39 +16,43 @@ const Account = nem2Sdk.Account,
 
 const privateKey = "5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892E6B5"
 
-const account = Account.createFromPrivateKey(privateKey, NetworkType.MIJIN_TEST);
+const account = Account.createFromPrivateKey(privateKey,            NetworkType.MIJIN_TEST);
 
 const mosaicID = new MosaicId('choice:nzdc');
 
-const mosaicSupplyChangeTransaction = MosaicSupplyChangeTransaction.create(Deadline.create(),
-mosaicID,
-MosaicSupplyType.Increase,
-UInt64.fromUint(2000000),
-// PlainMessage.create('please sir I want some more !'),
-NetworkType.MIJIN_TEST,);
+const mosaicSupplyChangeTransaction =     MosaicSupplyChangeTransaction.create(Deadline.create(),
+  mosaicID,
+  MosaicSupplyType.Decrease,
+  UInt64.fromUint(1700000),
+  // PlainMessage.create('please sir I want some more !'),
+  NetworkType.MIJIN_TEST,);
 
 const signedTransaction = account.sign(mosaicSupplyChangeTransaction);
 
 const transactionHttp = new TransactionHttp('http://api.beta.catapult.mijin.io:3000');
 
-class AddToken extends Component {
+
+class DeleteToken extends Component {
   constructor() {
     super();
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit = async () => {
-    transactionHttp.announce(signedTransaction).subscribe(x => console.log(x), err => console.error(err));
+onSubmit = async () => {
+  transactionHttp.announce(signedTransaction).subscribe(x => console.log(x), err => console.error(err));
   };
 
-  render() {
-    return (
+render() {
+  return (
       <div>
-        <Button className='increase' onClick={() => this.onSubmit()}>
-          AddToken
+        <Button
+          className='increase'
+          onClick={ () => this.onSubmit() }
+          >
+          DeleteToken
         </Button>
       </div>
     );
   }
 }
-export default AddToken;
+export default DeleteToken;

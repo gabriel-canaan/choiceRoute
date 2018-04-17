@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
 import { Input  } from 'semantic-ui-react'
-// import QrReader from './QrReader'
 // require('dotenv').config()
 // require('dot-env')
 const nem2Sdk = require("nem2-sdk");
@@ -22,6 +20,12 @@ const Address = nem2Sdk.Address,
   Address.createFromRawAddress('SBG2AR-6VPSMZ-7JTJOF-OZ5NYY-FJ4UVW-C5EIHV-N5WA'), [new Mosaic(new MosaicId('choice:nzdc'),
   UInt64.fromUint(amount))],
   NetworkType.MIJIN_TEST,);
+
+  // const signed = account.sign(transaction);
+  //
+  // transactionHttp.announce(signed)
+  // .subscribe(x => console.log(x), err => console.log(err));
+
 }
 // const privateKey = process.env.PRIVATE_KEY;
 const privateKey = "5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892E6B5"

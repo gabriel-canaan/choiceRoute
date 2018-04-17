@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {Container, Grid, Row, Column} from 'semantic-ui-react'
-import './App.css';
+
 import QrReader from './components/QrReader'
 import InfoButton from './components/InfoButton'
 import Transfer from './components/Transfer'
 import AddToken from './components/AddToken'
+import DeleteToken from './components/DeleteToken'
+import ShowTransaction from './components/ShowTransaction'
 let amount = 0
 
 const setAmount = (amt) => {
   amount = amt
 }
+
 class App extends Component {
   state = {
     users: []
@@ -37,6 +40,8 @@ class App extends Component {
                 <QrReader setAmount={setAmount}/>
                 <Transfer amount={amount}/>
                 <AddToken amount={amount}/>
+                <DeleteToken amount={amount}/>
+                <ShowTransaction />
               </Grid.Column>
             </Grid.Row>
           </Grid>

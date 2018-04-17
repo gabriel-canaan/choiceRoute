@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+
 import { Button, Input  } from 'semantic-ui-react'
 const nem2Sdk = require("nem2-sdk");
 
