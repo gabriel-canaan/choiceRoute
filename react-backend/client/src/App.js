@@ -1,21 +1,29 @@
 import React, {Component} from 'react';
 import {Container, Grid, Row, Column} from 'semantic-ui-react'
-
+// require('dotenv').config()
 import QrReader from './components/QrReader'
 import InfoButton from './components/InfoButton'
 import Transfer from './components/Transfer'
 import AddToken from './components/AddToken'
 import DeleteToken from './components/DeleteToken'
-import ShowTransaction from './components/ShowTransaction'
+// import ShowTransaction from './components/ShowTransaction'
+
+Object.assign(process.env, {
+  PRIVATE_KEY:'5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892E6B5',
+  HTTP_URL: 'http://api.beta.catapult.mijin.io:3000',
+  BLAH: 'blah'
+})
+
 let amount = 0
 
-const setAmount = (amt) => {
-  amount = amt
-}
+// const setAmount = (amt) => {
+//   amount = amt
+// }
 
 class App extends Component {
   state = {
-    users: []
+    users: [],
+    amount: null
   }
 
   // componentDidMount() {
@@ -37,11 +45,11 @@ class App extends Component {
                 )} */
                 }
                 <InfoButton/>
-                <QrReader setAmount={setAmount}/>
+                <QrReader setAmount={amount =>this.setState({amount})}/>
                 <Transfer amount={amount}/>
-                <AddToken amount={amount}/>
+                { this.state.amount && <AddToken amount={this.state.amount}/> }
                 <DeleteToken amount={amount}/>
-                <ShowTransaction />
+                {/* <ShowTransaction /> */}
               </Grid.Column>
             </Grid.Row>
           </Grid>

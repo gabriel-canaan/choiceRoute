@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Button } from 'semantic-ui-react';
+
 const nem2Sdk = require("nem2-sdk");
-// require('dot-env'
+// require('dot-env')
 // require('dotenv').config()
 
 const Account = nem2Sdk.Account,
@@ -11,20 +12,18 @@ const Account = nem2Sdk.Account,
   MosaicId = nem2Sdk.MosaicId,
   MosaicSupplyType = nem2Sdk.MosaicSupplyType,
   TransactionHttp = nem2Sdk.TransactionHttp,
-  // PlainMessage = nem2Sdk.PlainMessage,
   UInt64 = nem2Sdk.UInt64;
 
 const privateKey = "5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892E6B5"
+// const privateKey = process.env.PRIVATE_KEY;
 
-const account = Account.createFromPrivateKey(privateKey,            NetworkType.MIJIN_TEST);
+const account = Account.createFromPrivateKey(privateKey, NetworkType.MIJIN_TEST);
 
 const mosaicID = new MosaicId('choice:nzdc');
-
-const mosaicSupplyChangeTransaction =     MosaicSupplyChangeTransaction.create(Deadline.create(),
+const mosaicSupplyChangeTransaction =  MosaicSupplyChangeTransaction.create(Deadline.create(),
   mosaicID,
   MosaicSupplyType.Decrease,
   UInt64.fromUint(1700000),
-  // PlainMessage.create('please sir I want some more !'),
   NetworkType.MIJIN_TEST,);
 
 const signedTransaction = account.sign(mosaicSupplyChangeTransaction);
@@ -46,7 +45,7 @@ render() {
   return (
       <div>
         <Button
-          className='increase'
+          className='decrease'
           onClick={ () => this.onSubmit() }
           >
           DeleteToken

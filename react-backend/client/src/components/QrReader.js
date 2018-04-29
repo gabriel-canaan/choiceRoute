@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-
 import QrReader from 'react-qr-reader';
+
 import {submitTransaction} from './Transfer';
 
 class Test extends Component {
@@ -12,18 +12,21 @@ class Test extends Component {
     }
     this.handleScan = this.handleScan.bind(this);
     this.setAmount = props.setAmount;
-  }
+  };
 
   handleScan(data) {
+    let amount = parseInt(data, 10)
+
     if (data) {
-      this.setState({result: data})
-      submitTransaction(data);
+      this.props.setAmount(amount)
+      this.setState({result: amount})
+      submitTransaction(data)
     }
-  }
+  };
 
   handleError(err) {
     console.error(err)
-  }
+  };
 
   render() {
     return (
@@ -35,7 +38,7 @@ class Test extends Component {
         <p>{this.state.result}</p>
       </div>
     );
-  }
+  };
 }
 
 export default Test;

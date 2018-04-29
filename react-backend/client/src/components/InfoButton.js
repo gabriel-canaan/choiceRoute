@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import { Button, Input  } from 'semantic-ui-react'
+import { Button, Input  } from 'semantic-ui-react';
 const nem2Sdk = require("nem2-sdk");
 
 const AccountHttp = nem2Sdk.AccountHttp,
@@ -34,7 +33,6 @@ class InfoButton extends Component {
       .flatMap(_ => _)
       .subscribe(
         mosaic => console.log('You have', mosaic.relativeAmount(), mosaic.fullName()),
-        mosaic => this.setState({ amount: mosaic.relativeAmount() }),
         err => console.error(err)
       );
   };
@@ -46,11 +44,6 @@ class InfoButton extends Component {
           className='info'
           onClick={ () => this.onSubmit()}
           >Info</Button>
-        <Input
-          className='input'
-          readOnly={`${this.state.amount}` || "amount"}
-         />
-        <p>{this.state.amount}</p>
       </div>
     );
   }
