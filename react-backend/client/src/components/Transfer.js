@@ -25,6 +25,7 @@ const privateKey = "5114FEC8E12668D7CF90196688FB79979FB555E91533FE3CBD573561F892
   return TransferTransaction.create(Deadline.create(),
   Address.createFromRawAddress('SBG2AR-6VPSMZ-7JTJOF-OZ5NYY-FJ4UVW-C5EIHV-N5WA'), [new Mosaic(new MosaicId('choice:nzdc'),
   UInt64.fromUint(amount))],
+  PlainMessage.create(''),
   NetworkType.MIJIN_TEST);
 }
 
