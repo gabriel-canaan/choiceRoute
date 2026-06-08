@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Grid, Row, Column} from 'semantic-ui-react'
+import {Container, Grid} from 'semantic-ui-react'
 // require('dotenv').config()
 import QrReader from './components/QrReader'
 import InfoButton from './components/InfoButton'

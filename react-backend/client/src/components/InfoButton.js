@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Input  } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 const nem2Sdk = require("nem2-sdk");
 
 const AccountHttp = nem2Sdk.AccountHttp,
